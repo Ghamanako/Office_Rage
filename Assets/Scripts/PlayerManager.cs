@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     CharacterController characterController;
-    public Image RageMeterIMG;
     [SerializeField] float RageMeter;
+
+    public GameObject RageMeterBar;
+    public Image RageMeterIMG;
     public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
+        RageMeterBar.SetActive(false);
         characterController = GetComponent<CharacterController>();
     }
 
@@ -53,5 +56,14 @@ public class PlayerManager : MonoBehaviour
         RageMeter = Mathf.Clamp(RageMeter, 0, 100);
 
         RageMeterIMG.fillAmount = RageMeter / 100f;
+
+        if (RageMeter < 1)
+        {
+            RageMeterBar.SetActive(false);
+        }
+        else
+        {
+            RageMeterBar.SetActive(true);
+        }
     }
 }
