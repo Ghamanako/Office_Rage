@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
     CharacterController characterController;
-
+    public Image RageMeterIMG;
+    [SerializeField] float RageMeter;
     public float speed;
 
     // Start is called before the first frame update
@@ -19,6 +20,18 @@ public class PlayerManager : MonoBehaviour
     void Update()
     {
         Movement();
+        RageBar();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            RageBarCount(50);
+        }
+    }
+
+    public void RageBarCount(float rage)
+    {
+        RageMeter += rage;
+        RageMeterIMG.fillAmount = RageMeter / 100f;
     }
 
     public void Movement()
@@ -29,5 +42,16 @@ public class PlayerManager : MonoBehaviour
         Vector3 move = transform.right * moveX + transform.forward * moveY;
 
         characterController.Move(move * speed * Time.deltaTime);
+    }
+
+
+    
+
+    public void RageBar()
+    {
+        
+        RageMeter = Mathf.Clamp(RageMeter, 0, 100);
+
+        RageMeterIMG.fillAmount = RageMeter / 100f;
     }
 }
