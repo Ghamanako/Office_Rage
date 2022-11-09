@@ -10,10 +10,12 @@ public class MainMenuManager : MonoBehaviour
     public GameObject settings;
     public GameObject abouts;
     public GameObject exit;
+    public GameObject levelSelect;
 
     private bool onSettings;
     private bool onAbout;
     private bool onExit;
+    private bool onLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,29 @@ public class MainMenuManager : MonoBehaviour
         {
             exit.SetActive(false);
             onExit = false;
+        }
+
+        if (onLevel)
+        {
+            levelSelect.SetActive(true);
+            onLevel = true;
+        }
+        else
+        {
+            levelSelect.SetActive(false);
+            onLevel = false;
+        }
+    }
+
+    public void _LoadLevel()
+    {
+        if (!onLevel)
+        {
+            onLevel = true;
+        }
+        else
+        {
+            onLevel = false;
         }
     }
     public void _LoadGame()
