@@ -8,7 +8,8 @@ public class PlayerManager : MonoBehaviour
     CharacterController characterController;
     [SerializeField] float RageMeter;
 
-    public GameObject RageMeterBar;
+    public Transform SpawnPoint;
+    public GameObject RageMeterBar,NotifInteraction;
     public Image RageMeterIMG;
     public float speed;
 
@@ -47,7 +48,20 @@ public class PlayerManager : MonoBehaviour
         characterController.Move(move * speed * Time.deltaTime);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Interaction"))
+            ShowInteractNotify();
+    }
 
+    
+
+    public void ShowInteractNotify()
+    {
+        Instantiate(NotifInteraction,SpawnPoint);
+    }
+
+   
     
 
     public void RageBar()

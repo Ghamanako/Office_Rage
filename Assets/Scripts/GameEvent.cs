@@ -7,7 +7,7 @@ public class GameEvent : MonoBehaviour
 {
     public static GameEvent current;
     public static event Action<int> EventGames;
-  
+    
     private void Awake()
     {
         if (current == null)
