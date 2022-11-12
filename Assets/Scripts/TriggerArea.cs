@@ -5,14 +5,21 @@ using UnityEngine.Events;
 public class TriggerArea : MonoBehaviour
 {
     public int TriggerID;
-    public UnityEvent ontriggerEnter;
+    public UnityEvent ontriggerExit;
    
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         GameEvent.InActiveObject(TriggerID);
-        ontriggerEnter?.Invoke();
+     
     }
 
-   
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Player"))
+            ontriggerExit?.Invoke();
+       
+    }
+
+
 }

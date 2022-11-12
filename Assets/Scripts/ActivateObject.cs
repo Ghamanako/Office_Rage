@@ -5,7 +5,7 @@ using UnityEngine;
 public class ActivateObject : MonoBehaviour
 {
    [SerializeField] bool Aktif=false;
-    
+    public GameObject computerTask, Task;
     public int triggerangka;
     // Start is called before the first frame update
     void Start()
@@ -16,9 +16,13 @@ public class ActivateObject : MonoBehaviour
     public void Update()
     {
         if(Input.GetKeyDown(KeyCode.E))
-        if (Aktif == true)
+        if (Aktif == true&& triggerangka<2)
         {
-            gameObject.SetActive(false);
+                computerTask.SetActive(true) ;
+        } 
+        else if (Aktif == true&& triggerangka>1)
+        {
+                Task.SetActive(true) ;
         }
     }
 
