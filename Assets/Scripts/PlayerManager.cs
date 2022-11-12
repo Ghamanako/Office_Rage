@@ -1,41 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
+    
+    
+    //Basic Player Movement
+    [Space(5)]
+    [Header("Basic Player Movement")]
     CharacterController characterController;
-    [SerializeField] float RageMeter;
+  
 
     public Transform SpawnPoint;
-    public GameObject RageMeterBar,NotifInteraction;
-    public Image RageMeterIMG;
+    public GameObject NotifInteraction;
     public float speed;
-
+ 
     // Start is called before the first frame update
     void Start()
     {
-        RageMeterBar.SetActive(false);
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
-        RageBar();
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RageBarCount(50);
-        }
-    }
-
-    public void RageBarCount(float rage)
-    {
-        RageMeter += rage;
-        RageMeterIMG.fillAmount = RageMeter / 100f;
+        Movement();   
     }
 
     public void Movement()
@@ -52,9 +45,8 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interaction"))
             ShowInteractNotify();
+        
     }
-
-    
 
     public void ShowInteractNotify()
     {
@@ -62,22 +54,8 @@ public class PlayerManager : MonoBehaviour
     }
 
    
+   
     
 
-    public void RageBar()
-    {
-        
-        RageMeter = Mathf.Clamp(RageMeter, 0, 100);
-
-        RageMeterIMG.fillAmount = RageMeter / 100f;
-
-        if (RageMeter < 1)
-        {
-            RageMeterBar.SetActive(false);
-        }
-        else
-        {
-            RageMeterBar.SetActive(true);
-        }
-    }
+    
 }
