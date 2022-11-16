@@ -32,9 +32,11 @@ public class Ragebar : MonoBehaviour
         }
         if (CurrentRageMeter == MaxRagemeter)
         {
+            CurrentRageMeter = 100f;
             RageModeOn = true;
             StartCoroutine(DecreaseValue());
         }
+
         if (CurrentRageMeter <= 0)
         {
             CurrentRageMeter = 0;
