@@ -16,6 +16,7 @@ public class DecreaseRageFloatingObject : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             ragebar.CurrentRageMeter -= 20f;
+            Destroy(gameObject);
         }
     }
 }

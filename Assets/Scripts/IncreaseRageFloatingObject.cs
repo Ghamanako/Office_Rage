@@ -14,6 +14,7 @@ public class IncreaseRageFloatingObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Destroy(gameObject);
             ragebar.CurrentRageMeter += 20f;
         }
     }
