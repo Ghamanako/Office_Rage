@@ -6,16 +6,19 @@ using UnityEngine.UI;
 public class Ragebar : MonoBehaviour
 {
     [SerializeField] public float CurrentRageMeter;
+    public Sprite[] sprites;
+    public Image emot;
     float MaxRagemeter = 100f;
-    public GameObject RageMeterBar;
     public bool RageModeOn = false;
-    public Image RageMeterIMG;
+    public Slider slider;
+    
     [SerializeField] float delaytime;
     IEnumerator coroutine;
+    int index;
     // Start is called before the first frame update
     void Start()
     {
-        RageMeterBar.SetActive(false);
+       
         CurrentRageMeter = MaxRagemeter;
         CurrentRageMeter = 0;
         coroutine = DecreaseValue();
@@ -24,7 +27,7 @@ public class Ragebar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RageBar();
+        UpdateSlider();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -37,12 +40,19 @@ public class Ragebar : MonoBehaviour
             StartCoroutine(DecreaseValue());
         }
 
+        if (CurrentRageMeter >= MaxRagemeter)
+        {
+            CurrentRageMeter = 100f;
+        }
+
         if (CurrentRageMeter <= 0)
         {
             CurrentRageMeter = 0;
             RageModeOn = false;
             StopCoroutine("DecreaseValue");
         }
+
+        perubahanEmot();
     }
 
     IEnumerator DecreaseValue()
@@ -51,26 +61,46 @@ public class Ragebar : MonoBehaviour
             {
                 CurrentRageMeter--;
                 yield return new WaitForSeconds(delaytime);
+               
             }
        
     }
 
-    public void RageBar()
+
+   public void UpdateSlider()
     {
-
-        CurrentRageMeter = Mathf.Clamp(CurrentRageMeter, 0, MaxRagemeter);
-
-        RageMeterIMG.fillAmount = CurrentRageMeter / MaxRagemeter;
-
-        if (CurrentRageMeter < 1)
-        {
-            RageMeterBar.SetActive(false);
-        }
-        else
-        {
-            RageMeterBar.SetActive(true);
-        }
+        slider.value = CurrentRageMeter;
     }
+
+    public void perubahanEmot()
+    {
+        if(sprites.Length>=index)
+        emot.sprite=sprites[index];
+
+        if (CurrentRageMeter == 0)
+        {
+            emot.sprite = sprites[0];
+        }
+        if (CurrentRageMeter > 19)
+        {
+            emot.sprite = sprites[1];
+        }
+        if (CurrentRageMeter > 39)
+        {
+            emot.sprite = sprites[2];
+        }
+        if (CurrentRageMeter > 59)
+        {
+            emot.sprite = sprites[3];
+        }
+        if (CurrentRageMeter > 79)
+        {
+            emot.sprite = sprites[4];
+        }
+      
+    }
+
+    
 
 
 }
