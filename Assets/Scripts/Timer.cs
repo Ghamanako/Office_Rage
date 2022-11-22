@@ -11,14 +11,9 @@ public class Timer : MonoBehaviour
 
     public TextMeshProUGUI TimerT;
 
-    private void OnEnable()
+    private void Update()
     {
-        Actions.TimerStarted += TimeUpdate;
-    }
-
-    private void OnDisable()
-    {
-        Actions.TimerStarted -= TimeUpdate;
+        TimeUpdate();
     }
 
     public void TimeUpdate()
