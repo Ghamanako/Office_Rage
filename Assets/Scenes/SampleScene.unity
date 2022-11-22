@@ -2472,7 +2472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!20 &884394984
 Camera:
   m_ObjectHideFlags: 0
@@ -5004,9 +5004,9 @@ MonoBehaviour:
   CurrentRageMeter: 0
   sprites:
   - {fileID: 21300000, guid: 9b531f549ac4f354da6bb43666dfbfea, type: 3}
-  - {fileID: 21300000, guid: 16b58ff772348274c9d4954fb18f2b49, type: 3}
+  - {fileID: 21300000, guid: f635c080a102e1045a30c6db358ace82, type: 3}
   - {fileID: 21300000, guid: 1a3ee88f909b23341bc9ea84ebc0bce7, type: 3}
-  - {fileID: 21300000, guid: b912ed7c34abeaf41976d319d0ac5b5e, type: 3}
+  - {fileID: 21300000, guid: 92249f81291c1d649a577b6a0bab77f7, type: 3}
   - {fileID: 21300000, guid: cd957add26746744982597d5ebb9d7ef, type: 3}
   emot: {fileID: 1757234510}
   RageModeOn: 0
@@ -5239,7 +5239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
