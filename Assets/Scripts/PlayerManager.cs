@@ -22,13 +22,15 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        characterController = GetComponent<CharacterController>(); 
+        characterController = GetComponent<CharacterController>();
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();   
+        Movement();
+        LockYaxis();
     }
 
     public void Movement()
@@ -39,6 +41,16 @@ public class PlayerManager : MonoBehaviour
         Vector3 move = transform.right * moveX + transform.forward * moveY;
 
         characterController.Move(move * speed * Time.deltaTime);
+    }
+
+    public void LockYaxis()
+    {
+        if (transform.position.y > 0.453f)
+        {
+            transform.position = new Vector3(transform.position.x, 0.453f, transform.position.z);
+        }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)

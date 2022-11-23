@@ -28,8 +28,16 @@ public class Ai : MonoBehaviour
     void Update()
     {
         moveRandom();
-        
+        LockYAxis();
     } 
+
+    public void LockYAxis()
+    {
+        if (transform.rotation.y > 0&& transform.rotation.y<0)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z);
+        }
+    }
 
     public void moveRandom()
     {
