@@ -5,8 +5,8 @@ using TMPro;
 using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
-    [SerializeField] int Waktu;
-    int CurrentTime;
+    [SerializeField] public int Waktu;
+    [SerializeField]public int CurrentTime;
     float timerfloat;
     public Image image;
          
