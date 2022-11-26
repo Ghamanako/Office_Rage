@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -10,14 +11,29 @@ public class PauseMenu : MonoBehaviour
 
     public AudioSource BgmGameplay;
 
+    public AudioMixer BgmVol;
+
+    AudioSettings audioSettings;
+    public GameObject TesAudio;
+
+    float BBgmValue;
+    void Awake()
+    {
+        audioSettings = TesAudio.GetComponent<AudioSettings>();
+        
+    }
+
     private void Start()
     {
         Resume();
+        audioSettings.BgmValue = BBgmValue;
     }
-
+    
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape))
+        audioSettings.BgmValue = BBgmValue;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
                 if (GameIsPaused)
                 {
@@ -36,7 +52,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        BgmGameplay.Play();
+        //BgmGameplay.Play();
+        //BBgmValue = BBgmValue;
     }
 
     void Pause()
@@ -44,7 +61,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        BgmGameplay.Stop();
+        //BgmGameplay.Stop();
+        //BBgmValue = -40;
     }
 
 }

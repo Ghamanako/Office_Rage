@@ -1665,7 +1665,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1830,7 +1829,7 @@ MonoBehaviour:
   _nameText: {fileID: 1499402847}
   _dialogueText: {fileID: 572611343}
   _continueButton: {fileID: 614222866}
-  _tutorialTriggerIndex: 1
+  _tutorialTriggerIndex: 5
 --- !u!1 &1887879006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _worldCamera: {fileID: 1762359835}
   _objectCamera: {fileID: 1023881559}
-  _followTarget: {fileID: 1459301286}
+  _followTarget: {fileID: 1314858781}
 --- !u!4 &1887879008
 Transform:
   m_ObjectHideFlags: 0
@@ -1988,15 +1987,18 @@ MonoBehaviour:
   dialogue:
     name: Coba A
     sentences:
-    - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-      incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    - qweqweqeqeqweqweqweqweqweqweqweqweqeqeq
     - Morem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
       nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
     - Norem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
       nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    - adisucipto
+    - makan
+    - 'tahu
+
+'
 --- !u!4 &2126306194
 Transform:
   m_ObjectHideFlags: 0
