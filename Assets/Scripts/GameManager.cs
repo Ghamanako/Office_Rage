@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
     Timer timer;
     [SerializeField]int value;
     [SerializeField] int destroyvalue;
-    public GameObject gameOver;
-    
+    public GameObject gameOver,gameWin;
+    int TaskComplete;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,11 @@ public class GameManager : MonoBehaviour
 
         if(timer.CurrentTime==0 && value==0)
             gameOver.SetActive(true);
+
+        if (TaskComplete > 1)
+        {
+            gameWin.SetActive(true);
+        }
     }
 
     public void updatevalue(int Addvalue)
