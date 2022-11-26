@@ -1,9 +1,19 @@
 fileFormatVersion: 2
 guid: 743c213544254384ba496948325d2957
 ModelImporter:
-  serializedVersion: 21300
+  serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Color palette
+    second: {fileID: 2100000, guid: 1382cd7896b9c50489d9c873f9479e94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: egdes
+    second: {fileID: 2100000, guid: 9df85d819094e3943904f519b27c4d02, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -99,7 +109,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
