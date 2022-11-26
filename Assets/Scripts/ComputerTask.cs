@@ -8,8 +8,7 @@ public class ComputerTask : MonoBehaviour
     [SerializeField] float addRagePoint = 20f;
     public GameObject ComputerTaskUi;
     public GameObject[] prefabs;
-    float maxX = 490;
-    float maxY = 350;
+    public int[] anglestep;
     public bool isActive = false;
     public Transform SpawnP;
     // Start is called before the first frame update
@@ -37,14 +36,16 @@ public class ComputerTask : MonoBehaviour
 
     public void SpawnPrefabs()
     {
-        float randomPosX = Random.Range(-maxX, maxX);
-        float randomPosY = Random.Range(-maxY, maxY);
-        Vector3 position = new Vector3(randomPosX, randomPosY, -50f);
+        
+        
+        Vector3 position = new Vector3(0, 0, -50f);
         int index = Random.Range(0, prefabs.Length);
+
         if (isActive)
         {
-        GameObject Wbject = Instantiate(prefabs[index], position, transform.rotation) as GameObject;
+        GameObject Wbject = Instantiate(prefabs[index], position, Quaternion.identity) as GameObject;
         Wbject.transform.SetParent(SpawnP.transform, false);
+           
 
         }
     }
