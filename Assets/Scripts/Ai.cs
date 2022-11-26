@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -7,7 +8,7 @@ public class Ai : MonoBehaviour
 {
     [SerializeField] float timeToMoveNodeMode;
     [SerializeField] float timeRageMode;
-    public Ragebar ragebar;
+   [SerializeField] Ragebar ragebar;
     public Transform CentrePoint;
     public float range;
     public int targetI;
@@ -20,7 +21,7 @@ public class Ai : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        ragebar = GetComponent<Ragebar>();
         nav = gameObject.GetComponent<NavMeshAgent>();
     }
 
@@ -41,6 +42,7 @@ public class Ai : MonoBehaviour
 
     public void moveRandom()
     {
+            
         if (ragebar.RageModeOn)
         {
             eevent?.Invoke();

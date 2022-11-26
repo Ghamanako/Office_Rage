@@ -29,8 +29,13 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+       
         LockYaxis();
+    }
+
+    public void FixedUpdate()
+    {
+        Movement();
     }
 
     public void Movement()
@@ -38,9 +43,15 @@ public class PlayerManager : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * moveX + transform.forward * moveY;
+        Vector3 move = new Vector3(moveX, 0, moveY);
 
         characterController.Move(move * speed * Time.deltaTime);
+
+        if (move != Vector3.zero)
+        {
+            transform.forward = move;
+        }
+       
     }
 
     public void LockYaxis()
