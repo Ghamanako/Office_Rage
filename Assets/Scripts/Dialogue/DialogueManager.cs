@@ -27,6 +27,7 @@ public class DialogueManager : MonoBehaviour
     {
         _sentences = new Queue<string>();
         _continueButton.onClick.AddListener(DisplayNextSentence);
+        //Time.timeScale = 0;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -87,6 +88,7 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("End of conversation");
         this.gameObject.SetActive(false);
+        //Time.timeScale = 1;
         if (!_isZoomActive)
         {
             return;
