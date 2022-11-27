@@ -6,22 +6,18 @@ public class CinemachineSwitcher : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera _worldCamera;
     [SerializeField] private CinemachineVirtualCamera _objectCamera;
-    [SerializeField] private Transform _followTarget;
     private bool _isWorldCamera = true;
 
     private void OnEnable()
     {
         DialogueManager.OnCameraSwitchEvent += SwitchCamera;
+        DialogueManager.OnCameraTargetChangedEvent += SwitchTarget;
     }
 
     private void OnDisable()
     {
         DialogueManager.OnCameraSwitchEvent -= SwitchCamera;
-    }
-
-    private void Start()
-    {
-        SwitchTarget();
+        DialogueManager.OnCameraTargetChangedEvent -= SwitchTarget;
     }
 
     private void SwitchCamera()
@@ -40,9 +36,9 @@ public class CinemachineSwitcher : MonoBehaviour
     }
     
     [ContextMenu("Switch Camera Target")]
-    private void SwitchTarget()
+    private void SwitchTarget(Transform target)
     {
-        _objectCamera.Follow = _followTarget;
-        _objectCamera.LookAt = _followTarget;
+        _objectCamera.Follow = target;
+        _objectCamera.LookAt = target;
     }
 }
