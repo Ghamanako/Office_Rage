@@ -11,10 +11,16 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _dialogueText;
     [SerializeField] private Button _continueButton;
-    [SerializeField] private int _tutorialTriggerIndex;
+    [SerializeField] private Transform[] _objectZoomTargets;
+    [SerializeField] private List<int> _tutorialTriggerIndex = new List<int>();
+    [SerializeField] private int _currentDialogueIndex;
+    private bool _isZoomActive = false;
 
     public delegate void OnCameraSwitch();
+
+    public delegate void OnTargetSwitch(Transform target);
     public static event OnCameraSwitch OnCameraSwitchEvent;
+    public static event OnTargetSwitch OnCameraTargetChangedEvent;
     private Queue<string> _sentences;
 
     private void Awake()
@@ -34,6 +40,7 @@ public class DialogueManager : MonoBehaviour
             _sentences.Enqueue(sentence);
         }
         
+        _currentDialogueIndex = 0;
         DisplayNextSentence();
     }
     
@@ -44,21 +51,47 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-        
+
+        if (_isZoomActive)
+        {
+            OnCameraSwitchEvent?.Invoke();
+        }
+
         string sentence = _sentences.Dequeue();
         _dialogueText.text = sentence;
         
-        var dialogueCount = _sentences.Count;
-        if (dialogueCount == _tutorialTriggerIndex)
+        _currentDialogueIndex++;
+        TriggerZoom();
+    }
+
+    private void TriggerZoom()
+    {
+        _isZoomActive = false;
+        
+        for (int i = 0; i < _tutorialTriggerIndex.Count; i++)
         {
-            OnCameraSwitchEvent?.Invoke();
+            if(_currentDialogueIndex == _tutorialTriggerIndex[i])
+            {
+                if (!_isZoomActive)
+                {
+                    OnCameraSwitchEvent?.Invoke();
+                    _isZoomActive = true;
+                }
+                
+                OnCameraTargetChangedEvent?.Invoke(_objectZoomTargets[i]);
+            }
         }
     }
     
     private void EndDialogue()
     {
         Debug.Log("End of conversation");
-        OnCameraSwitchEvent?.Invoke();
         this.gameObject.SetActive(false);
+        if (!_isZoomActive)
+        {
+            return;
+        }
+        OnCameraSwitchEvent?.Invoke();
+        _isZoomActive = false;
     }
 }
