@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 public class QuizManager : MonoBehaviour
@@ -16,17 +17,18 @@ public class QuizManager : MonoBehaviour
 
 
     public List<Soal> KumpulanSoal;
-
+    GameManager gameManager;
     [Space(150)]
     public GameObject[] pilihanGanda;
     public int CurrentSoal;
     public TextMeshProUGUI soalT;
-    
-
-  
+    [SerializeField] int PointToComplete;
+    [SerializeField] int score;
+    public GameObject QuizTask;
 
     void Start()
     {
+        gameManager = GameObject.Find("GameEventSystem").GetComponent<GameManager>();
         GenerateQuestion();
        
     }
@@ -35,7 +37,11 @@ public class QuizManager : MonoBehaviour
     {
         if (KumpulanSoal.Count == 0)
         {
-            Debug.Log("Stop");
+            QuizTask.SetActive(false);
+            if (score >= PointToComplete)
+            {
+
+            }
         }
     }
 
@@ -81,5 +87,10 @@ public class QuizManager : MonoBehaviour
       
         SetAnswers();
 
+    }
+
+    public void UpdateScore(int AddScore)
+    {
+        score += AddScore;
     }
 }
