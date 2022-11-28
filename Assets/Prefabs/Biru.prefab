@@ -113,3 +113,4 @@ MonoBehaviour:
   speed: 2
   direction: {x: 0, y: 0, z: 0}
   notif: {fileID: 6200318520832305337, guid: 39b9572b37dd231468ff96d4f13b2f3b, type: 3}
+  insta: {fileID: 650894961669081675, guid: 39b9572b37dd231468ff96d4f13b2f3b, type: 3}

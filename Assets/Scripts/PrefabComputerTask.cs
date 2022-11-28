@@ -38,7 +38,7 @@ public class PrefabComputerTask : MonoBehaviour
     {
         Destroy(gameObject);
         GameObject s = Instantiate(notif, gameObject.transform.position, Quaternion.identity) as GameObject;
-        s.transform.SetParent(insta, false);
+        s.transform.SetParent(insta,false);
       
     }
 

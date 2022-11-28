@@ -112,4 +112,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   direction: {x: 0, y: 0, z: 0}
-  notif: {fileID: 6200318520832305337, guid: 39b9572b37dd231468ff96d4f13b2f3b, type: 3}
+  notif: {fileID: 161848282965749725, guid: cad44b0edb2a69b4fa69e0dfeaa9ce8a, type: 3}
+  insta: {fileID: 650894961669081675, guid: 39b9572b37dd231468ff96d4f13b2f3b, type: 3}

@@ -3,23 +3,34 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using TMPro;
 public class GameManager : MonoBehaviour
 {
     Timer timer;
-    [SerializeField]int value;
-    [SerializeField] int destroyvalue;
+    public float value;
+    public float destroyvalue;
     public GameObject gameOver,gameWin;
-    int TaskComplete;
+    [SerializeField]int TaskComplete;
+
+    [Header("UI Object")]
+    public TextMeshProUGUI valueT;
+    public Image BarObject;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         timer=GetComponent<Timer>();
+        value = 0;
+        destroyvalue = destroyvalue;
     }
 
     // Update is called once per frame
     void Update()
     {
+        valueT.text = value + "/" + destroyvalue;
+        Bar();
         if (value >= destroyvalue)
         {
             gameOver.SetActive(true);
@@ -34,8 +45,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Bar()
+    {
+        BarObject.fillAmount = value / destroyvalue;
+    }
+
     public void updatevalue(int Addvalue)
     {
         value += Addvalue;
+      
+    }
+
+    public void UpdateProgressTask(int AddComplete)
+    {
+        TaskComplete += AddComplete;
     }
 }
