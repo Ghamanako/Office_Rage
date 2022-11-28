@@ -25,7 +25,7 @@ public class QuizManager : MonoBehaviour
     [SerializeField] int PointToComplete;
     [SerializeField] int score;
     public GameObject QuizTask;
-
+    int QuestComplete;
     void Start()
     {
         gameManager = GameObject.Find("GameEventSystem").GetComponent<GameManager>();
@@ -40,7 +40,7 @@ public class QuizManager : MonoBehaviour
             QuizTask.SetActive(false);
             if (score >= PointToComplete)
             {
-
+                gameManager.UpdateProgressTask(QuestComplete);
             }
         }
     }

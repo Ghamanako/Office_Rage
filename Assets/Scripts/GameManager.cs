@@ -11,12 +11,13 @@ public class GameManager : MonoBehaviour
     public float value;
     public float destroyvalue;
     public GameObject gameOver,gameWin;
-    [SerializeField]int TaskComplete;
+    public float TaskComplete;
+    public float PointToWin;
 
     [Header("UI Object")]
-    public TextMeshProUGUI valueT;
+    public TextMeshProUGUI valueT, ValueS;
     public Image BarObject;
-    
+    public Image bar;
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +25,15 @@ public class GameManager : MonoBehaviour
         timer=GetComponent<Timer>();
         value = 0;
         destroyvalue = destroyvalue;
+        PointToWin = PointToWin;
+        TaskComplete = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         valueT.text = value + "/" + destroyvalue;
+        ValueS.text = TaskComplete + "/" + PointToWin;
         Bar();
         if (value >= destroyvalue)
         {
@@ -39,7 +43,7 @@ public class GameManager : MonoBehaviour
         if(timer.CurrentTime==0 && value==0)
             gameOver.SetActive(true);
 
-        if (TaskComplete > 1)
+        if (TaskComplete >= PointToWin)
         {
             gameWin.SetActive(true);
         }
@@ -48,6 +52,7 @@ public class GameManager : MonoBehaviour
     public void Bar()
     {
         BarObject.fillAmount = value / destroyvalue;
+        bar.fillAmount = TaskComplete / PointToWin;
     }
 
     public void updatevalue(int Addvalue)
