@@ -3,7 +3,12 @@ guid: 097404d77df2e784fb1c1fbd96f6fa67
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lantai
+    second: {fileID: 2100000, guid: 5f48b51963edf1b4698d4df867df8d77, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
