@@ -15,6 +15,14 @@ public class Ragebar : MonoBehaviour
     [SerializeField] float delaytime;
     IEnumerator coroutine;
     int index;
+
+    //ihsan script
+    //public static bool onRageMode = false;
+
+    public GameObject onRageAudio;
+    public GameObject onCalmAudio;
+    //ihsan script
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +46,8 @@ public class Ragebar : MonoBehaviour
             CurrentRageMeter = 100f;
             RageModeOn = true;
             StartCoroutine(DecreaseValue());
+            //ihsan
+            onRage();
         }
 
         if (CurrentRageMeter >= MaxRagemeter)
@@ -50,6 +60,8 @@ public class Ragebar : MonoBehaviour
             CurrentRageMeter = 0;
             RageModeOn = false;
             StopCoroutine("DecreaseValue");
+            //ihsan
+            onCalm();
         }
 
         perubahanEmot();
@@ -80,6 +92,7 @@ public class Ragebar : MonoBehaviour
         if (CurrentRageMeter == 0)
         {
             emot.sprite = sprites[0];
+            //onCalm();
         }
         if (CurrentRageMeter > 19)
         {
@@ -97,10 +110,29 @@ public class Ragebar : MonoBehaviour
         {
             emot.sprite = sprites[4];
         }
-      
+        // ihsan script
+        if (CurrentRageMeter > 100)
+        {
+            //onRage();//
+        }
     }
 
-    
+
+    // ihsan script
+    void onRage()
+    {
+        onRageAudio.SetActive(true);
+        onCalmAudio.SetActive(false);
+        //onRageMode = false;
+    }
+
+    void onCalm()
+    {
+        onCalmAudio.SetActive(true);
+        onRageAudio.SetActive(false);
+        //onRageMode = true;
+    }
+
 
 
 }
