@@ -16,7 +16,7 @@ public class Wait_For_Sec : MonoBehaviour
 
     void AudioSplashEffect()
     {
-        audioData.PlayDelayed(3);
+        audioData.PlayDelayed(2);
     }
 
     void ChangeScene()
