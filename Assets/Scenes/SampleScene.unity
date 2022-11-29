@@ -281,7 +281,7 @@ MonoBehaviour:
   - {fileID: 2036063688}
   CurrentSoal: 0
   soalT: {fileID: 577069273}
-  PointToComplete: 0
+  PointToComplete: 3
   score: 0
   QuizTask: {fileID: 143229595}
 --- !u!1 &147855695
@@ -7396,6 +7396,8 @@ MonoBehaviour:
   RageModeOn: 0
   slider: {fileID: 760664561}
   delaytime: 1
+  onRageAudio: {fileID: 0}
+  onCalmAudio: {fileID: 0}
 --- !u!1 &1836493257
 GameObject:
   m_ObjectHideFlags: 0

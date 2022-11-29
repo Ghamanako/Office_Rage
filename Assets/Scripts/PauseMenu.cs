@@ -8,9 +8,14 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
+    SaveData levelUpdate;
+
     public GameObject pauseMenuUI;
+
+    public string nextLevel;
     void Awake()
     {
+        //GetComponent<SaveData>().UpdateLevel();
     }
 
     private void Start()
@@ -22,6 +27,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            
                 if (GameIsPaused)
                 {
                     Resume();
