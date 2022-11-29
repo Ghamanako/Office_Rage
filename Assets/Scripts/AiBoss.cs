@@ -59,9 +59,13 @@ public class AiBoss : MonoBehaviour
         if (!m_IsPatrol)
         {
             Chasing();
+            animator.SetBool("chasing", true);
+            animator.SetBool("walking", false);
         }
         else
         {
+            animator.SetBool("chasing", false);
+            animator.SetBool("walking", true);
             Patroling();
 
         }
@@ -83,6 +87,7 @@ public class AiBoss : MonoBehaviour
             if (m_WaitTime <= 0 && !m_CaughtPlayer && Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 6f)
             {
                 //  Check if the enemy is not near to the player, returns to patrol after the wait time delay
+                animator.SetBool("walking", true);
                 m_IsPatrol = true;
                 m_PlayerNear = false;
                 Move(speedWalk);
@@ -92,6 +97,7 @@ public class AiBoss : MonoBehaviour
             }
             else
             {
+              
                 if (Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) >= 2.5f)
                     //  Wait if the current position is not the player position
                     Stop();
@@ -104,7 +110,7 @@ public class AiBoss : MonoBehaviour
     {
         if (m_PlayerNear)
         {
-            animator.SetBool("chasing", true);
+          
             //  Check if the enemy detect near the player, so the enemy will move to that position
             if (m_TimeToRotate <= 0)
             {
@@ -114,6 +120,7 @@ public class AiBoss : MonoBehaviour
             }
             else
             {
+                
                 //  The enemy wait for a moment and then go to the last player position
                 Stop();
                 m_TimeToRotate -= Time.deltaTime;
@@ -121,7 +128,7 @@ public class AiBoss : MonoBehaviour
         }
         else
         {
-            animator.SetBool("chasing", true);
+            
             m_PlayerNear = false;           //  The player is no near when the enemy is platroling
             playerLastPosition = Vector3.zero;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the enemy destination to the next waypoint
