@@ -10,6 +10,7 @@ public class AiBoss : MonoBehaviour
     public float timeToRotate = 2;                  //  Wait time when the enemy detect near the player without seeing
     public float speedWalk = 6;                     //  Walking speed, speed in the nav mesh agent
     public float speedRun = 9;                      //  Running speed
+    private Animator animator;
 
     public float viewRadius = 15;                   //  Radius of the enemy view
     public float viewAngle = 90;                    //  Angle of the enemy view
@@ -42,7 +43,7 @@ public class AiBoss : MonoBehaviour
         m_PlayerNear = false;
         m_WaitTime = startWaitTime;                 //  Set the wait time variable that will change
         m_TimeToRotate = timeToRotate;
-
+        animator = GetComponent<Animator>();
         m_CurrentWaypointIndex = 0;                 //  Set the initial waypoint
         navMeshAgent = GetComponent<NavMeshAgent>();
 
@@ -62,6 +63,7 @@ public class AiBoss : MonoBehaviour
         else
         {
             Patroling();
+
         }
     }
 
@@ -102,11 +104,13 @@ public class AiBoss : MonoBehaviour
     {
         if (m_PlayerNear)
         {
+            animator.SetBool("chasing", true);
             //  Check if the enemy detect near the player, so the enemy will move to that position
             if (m_TimeToRotate <= 0)
             {
                 Move(speedWalk);
                 LookingPlayer(playerLastPosition);
+
             }
             else
             {
@@ -117,6 +121,7 @@ public class AiBoss : MonoBehaviour
         }
         else
         {
+            animator.SetBool("chasing", true);
             m_PlayerNear = false;           //  The player is no near when the enemy is platroling
             playerLastPosition = Vector3.zero;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);    //  Set the enemy destination to the next waypoint
