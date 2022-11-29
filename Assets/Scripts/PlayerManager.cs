@@ -13,8 +13,8 @@ public class PlayerManager : MonoBehaviour
     [Space(5)]
     [Header("Basic Player Movement")]
     CharacterController characterController;
-  
 
+    public Animator animator;
     public Transform SpawnPoint;
     public GameObject NotifInteraction;
     public float speed;
@@ -36,19 +36,21 @@ public class PlayerManager : MonoBehaviour
     public void FixedUpdate()
     {
         Movement();
+
     }
 
     public void Movement()
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveY = Input.GetAxis("Vertical");
-
+      
         Vector3 move = new Vector3(moveX, 0, moveY);
 
         characterController.Move(move * speed * Time.deltaTime);
 
         if (move != Vector3.zero)
         {
+            animator.SetTrigger("Walking");
             transform.forward = move;
         }
        
@@ -62,6 +64,16 @@ public class PlayerManager : MonoBehaviour
         }
 
         
+    }
+
+    public void AnimationInteract()
+    {
+        animator.SetTrigger("Interact");
+    }
+
+    public void AnimationRage()
+    {
+        animator.SetBool("Rage", true);
     }
 
     private void OnTriggerEnter(Collider other)
