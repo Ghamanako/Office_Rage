@@ -150,9 +150,13 @@ public class AiBoss : MonoBehaviour
         }
     }
 
-    private void OnAnimatorMove()
+    public void OnTriggerEnter(Collider other)
     {
-
+        if (other.CompareTag("Player"))
+        {
+            Ragebar ragebar = GetComponent<Ragebar>();
+            ragebar.CurrentRageMeter += 20;
+        }
     }
 
     public void NextPoint()
