@@ -1489,23 +1489,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7171247062693856732, guid: 35154e00f6ea7814aa4cefdf1a98656a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.96
+      value: -4.9238105
       objectReference: {fileID: 0}
     - target: {fileID: 7171247062693856732, guid: 35154e00f6ea7814aa4cefdf1a98656a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.98
+      value: 6.8938065
       objectReference: {fileID: 0}
     - target: {fileID: 7171247062693856732, guid: 35154e00f6ea7814aa4cefdf1a98656a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.11
+      value: -0.84195733
       objectReference: {fileID: 0}
     - target: {fileID: 7171247062693856732, guid: 35154e00f6ea7814aa4cefdf1a98656a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.80163944
+      value: 0.92387956
       objectReference: {fileID: 0}
     - target: {fileID: 7171247062693856732, guid: 35154e00f6ea7814aa4cefdf1a98656a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.5978078
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 7956137780554926581, guid: 35154e00f6ea7814aa4cefdf1a98656a, type: 3}
       propertyPath: m_Layer
@@ -8561,3 +8561,68 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!1001 &2144914038
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1114800673352249096, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_Name
+      value: Ge_FAb
+      objectReference: {fileID: 0}
+    - target: {fileID: 1114800673352249096, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6347563284029247790, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6748390217215586243, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1f8ccd81d946db54a9c8936d518ea432, type: 3}

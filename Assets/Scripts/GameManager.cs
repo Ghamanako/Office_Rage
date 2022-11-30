@@ -37,17 +37,19 @@ public class GameManager : MonoBehaviour
         Bar();
         if (value >= destroyvalue)
         {
-            gameOver.SetActive(true);
+            gameWin.SetActive(true);
         }   
 
-        //if(timer.CurrentTime==0 && value==0)
-            //gameOver.SetActive(true);
+        if(timer.CurrentTime==0 && value==0)
+            gameOver.SetActive(true);
 
         if (TaskComplete >= PointToWin)
         {
             gameWin.SetActive(true);
             Time.timeScale = 0;
         }
+
+        //if (destroyvalue = destroyvalue) { }
     }
 
     public void Bar()

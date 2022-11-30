@@ -154,8 +154,8 @@ public class AiBoss : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Ragebar ragebar = GetComponent<Ragebar>();
-            ragebar.CurrentRageMeter += 20;
+            //Ragebar ragebar = GetComponent<Ragebar>();
+            //ragebar.CurrentRageMeter += 20;
         }
     }
 
