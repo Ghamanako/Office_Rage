@@ -50,8 +50,12 @@ public class PlayerManager : MonoBehaviour
 
         if (move != Vector3.zero)
         {
-            animator.SetTrigger("Walking");
+            animator.SetBool("Walking",true);
             transform.forward = move;
+        }
+        else
+        {
+            animator.SetBool("Walking", false);
         }
        
     }
