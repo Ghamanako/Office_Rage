@@ -22,6 +22,7 @@ public class DestroyObjects : MonoBehaviour
             colliders.isTrigger = true;
             Destroy(gameObject);
             Instantiate(Prefab, transform.position, transform.rotation);
+            Destroy(Prefab, 5);
             game.updatevalue(countDestroyedObjectValue);
             Debug.Log(countDestroyedObjectValue);
         }
