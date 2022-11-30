@@ -18,9 +18,11 @@ public class Ai : MonoBehaviour
     public NavMeshAgent nav;
     public UnityEvent eevent;
     public UnityEvent kelar;
+    public PlayerManager player;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<PlayerManager>();
         ragebar = GetComponent<Ragebar>();
         nav = gameObject.GetComponent<NavMeshAgent>();
     }
@@ -45,6 +47,7 @@ public class Ai : MonoBehaviour
             
         if (ragebar.RageModeOn)
         {
+            player.AnimationRage();
             eevent?.Invoke();
             if (nav.remainingDistance <= nav.stoppingDistance) //done with path
             {

@@ -5,7 +5,12 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
     public EventUi eventUi;
+    public PlayerManager playerManager;
 
+    private void Start()
+    {
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.GetComponent<EventUi>())
@@ -17,6 +22,7 @@ public class Interact : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 eventUi.CanInteract.Invoke();
+                playerManager.AnimationInteract();
             }
         }
     }

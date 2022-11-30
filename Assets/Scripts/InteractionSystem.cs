@@ -9,6 +9,13 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField]float rangeForInteraction = 3f;
     [SerializeField] EventUi eventUi;
     RaycastHit hit;
+    public PlayerManager playerManager;
+
+    private void Start()
+    {
+        playerManager = GameObject.Find("Player").GetComponent<PlayerManager>();
+    }
+
     private void Update()
     {
         Interaction();
