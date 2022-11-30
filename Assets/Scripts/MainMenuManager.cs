@@ -85,6 +85,21 @@ public class MainMenuManager : MonoBehaviour
     {
         SceneManager.LoadScene(gameplay);
     }
+
+    public void Level1()
+    {
+        SceneManager.LoadScene("Level 1 Tutorial");
+    }
+
+    public void Level2()
+    {
+        SceneManager.LoadScene("Level 2 PostPro");
+    }
+
+    public void Level3()
+    {
+        SceneManager.LoadScene("Level 3 PostPro");
+    }
     public void _LoadSettings()
     {
         if (!onSettings)

@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Level 1 PostPro.unity
+    guid: ee48eb527c7b67747aec7cbf6e4a40f9
+  - enabled: 1
+    path: Assets/Scenes/Level 2 PostPro.unity
+    guid: 4e68761e77f5a69409e351740c6e58f8
+  - enabled: 1
+    path: Assets/Scenes/Level 3 PostPro.unity
+    guid: c9e758ad0835a3a4a92ccae6fd4e59b3
+  - enabled: 1
+    path: Assets/Scenes/Level 1 Tutorial.unity
+    guid: 1606f7a043dc2a5489589ec7e484da5e
   m_configObjects: {}
